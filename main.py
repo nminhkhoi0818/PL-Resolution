@@ -1,7 +1,7 @@
 from algo import PL_RESOLUTION
 
 #Read input
-def read_input():
+def handle_algo():
     f = open("PL-Resolution\input.txt", "r")
     line = f.readline() #Get alpha
     alpha = ""
@@ -24,6 +24,10 @@ def read_input():
                 temp_list.append(w)
         KB.add(tuple(temp_list))
     result = PL_RESOLUTION(KB, str(alpha))
-    print(result)
+    f = open("PL-Resolution\output.txt", "a")
+    if result == True:
+        f.write("True")
+    else:
+        f.write("False")
         
-read_input()
+handle_algo()

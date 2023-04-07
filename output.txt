@@ -1,0 +1,41 @@
+7
+-C
+-B OR C
+-B
+-C OR B
+A OR C OR -B
+-A
+-A OR B
+9
+A OR -B
+-A OR C
+-B
+-C
+-B OR C
+-C OR B
+A OR C OR -B
+-A
+-A OR B
+10
+A OR -C
+-B
+-C
+-B OR C
+-C OR B
+A OR -B
+A OR C OR -B
+-A
+-A OR C
+-A OR B
+10
+-B
+-C
+-B OR C
+-C OR B
+A OR -B
+A OR C OR -B
+-A
+A OR -C
+-A OR C
+-A OR B
+False

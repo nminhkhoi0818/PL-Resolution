@@ -1,6 +1,7 @@
 def PL_RESOLUTION(KB, alpha):
     clauses = KB.copy()
     clauses.add((alpha,))  # add negation of alpha to clauses
+    f = open("PL-Resolution\output.txt", "w")
     while True:
         new = set()
         pairs = [(ci, cj) for ci in clauses for cj in clauses if ci != cj]
@@ -9,13 +10,28 @@ def PL_RESOLUTION(KB, alpha):
             if check == True:
                 return True
             new.update(resolvents)
-        print(len(new) + len(clauses))
-        print(new)
-        print(clauses)
+        print_output(f, new, clauses)
         if new.issubset(clauses):
             return False
         clauses.update(new)
 
+def print_output(f, new, clauses):
+    f.write(str(len(new) + len(clauses)))
+    f.write("\n")
+    for cl in new:
+        for i in range(len(cl)):
+            if i == len(cl) - 1:
+                f.write(f"{cl[i]}")
+            else:
+                f.write(f"{cl[i]} OR ")
+        f.write("\n")
+    for cl in clauses:
+        for i in range(len(cl)):
+            if i == len(cl) - 1:
+                f.write(f"{cl[i]}")
+            else:
+                f.write(f"{cl[i]} OR ")
+        f.write("\n")
 
 def check_valid(resolvent):
     for el1 in resolvent:
